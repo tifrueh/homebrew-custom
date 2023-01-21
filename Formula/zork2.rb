@@ -4,20 +4,19 @@ class Zork2 < Formula
   url "http://infocom-if.org/downloads/zork2.zip"
   version "48"
   sha256 "7c360a14ec61d8e8f265e1aa99a13487c5e0f016a752e4b32314405a0e9ffea0"
-  license "ACTIVISION-EULA"
+  license :cannot_represent
 
   depends_on "frotz"
 
   def install
     prefix.install "README.txt"
+    mkdir_p "share/SAVE"
+    pkgshare.install buildpath/"DATA/ZORK2.DAT"
     system "echo '#!/bin/sh' > #{name}"
-    system "mkdir -p share/SAVE"
-    system "touch share/SAVE/ZORK2_SAVEFILE_DIR"
-    system "cp DATA/ZORK2.DAT share/ZORK2.DAT"
-    pkgshare.install Dir["share/*"]
-    system "echo '/opt/homebrew/bin/frotz -R #{pkgshare}/SAVE #{pkgshare}/ZORK2.DAT' >> #{name}"
-    system "chmod a+x #{name}"
-    bin.install "#{name}"
+    system "echo 'mkdir -p $HOME/.local/share/#{name}/SAVE' >> #{name}"
+    system "echo '/opt/homebrew/bin/frotz -R $HOME/.local/share/#{name}/SAVE #{pkgshare}/ZORK2.DAT' >> #{name}"
+    chmod 0755, name.to_s
+    bin.install name.to_s
   end
 
   test do
