@@ -30,7 +30,7 @@ cask "microsoft-teams-classic" do
   depends_on cask: "microsoft-auto-update"
   depends_on macos: ">= :big_sur"
 
-  pkg "MicrosoftTeams.pkg",
+  pkg "Teams_osx.pkg",
       choices: [
         {
           "choiceIdentifier" => "com.microsoft.autoupdate",
@@ -42,12 +42,12 @@ cask "microsoft-teams-classic" do
   uninstall pkgutil:   [
               "com.microsoft.MSTeamsAudioDevice",
               "com.microsoft.package.Microsoft_AutoUpdate.app",
-              "com.microsoft.teams2",
+              "com.microsoft.teams",
             ],
             launchctl: "com.microsoft.teams.TeamsUpdaterDaemon",
             quit:      "com.microsoft.autoupdate2",
             delete:    [
-              "/Applications/Microsoft Teams (work or school).app",
+              "/Applications/Microsoft Teams classic.app",
               "/Library/Application Support/Microsoft/TeamsUpdaterDaemon",
               "/Library/Logs/Microsoft/Teams",
               "/Library/Logs/Microsoft/MSTeams",
@@ -55,16 +55,16 @@ cask "microsoft-teams-classic" do
             ]
 
   zap trash: [
-        "~/Library/Application Scripts/com.microsoft.teams2",
-        "~/Library/Application Scripts/com.microsoft.teams2.launcher",
-        "~/Library/Application Scripts/com.microsoft.teams2.notificationcenter",
+        "~/Library/Application Scripts/com.microsoft.teams",
+        "~/Library/Application Scripts/com.microsoft.teams.launcher",
+        "~/Library/Application Scripts/com.microsoft.teams.notificationcenter",
         "~/Library/Application Support/com.microsoft.teams",
         "~/Library/Application Support/Microsoft/Teams",
         "~/Library/Application Support/Teams",
         "~/Library/Caches/com.microsoft.teams",
-        "~/Library/Containers/com.microsoft.teams2",
-        "~/Library/Containers/com.microsoft.teams2.launcher",
-        "~/Library/Containers/com.microsoft.teams2.notificationcenter",
+        "~/Library/Containers/com.microsoft.teams",
+        "~/Library/Containers/com.microsoft.teams.launcher",
+        "~/Library/Containers/com.microsoft.teams.notificationcenter",
         "~/Library/Cookies/com.microsoft.teams.binarycookies",
         "~/Library/Group Containers/*.com.microsoft.teams",
         "~/Library/HTTPStorages/com.microsoft.teams",
@@ -73,7 +73,6 @@ cask "microsoft-teams-classic" do
         "~/Library/Logs/Microsoft Teams Helper (Renderer)",
         "~/Library/Preferences/com.microsoft.teams.plist",
         "~/Library/Saved Application State/com.microsoft.teams.savedState",
-        "~/Library/Saved Application State/com.microsoft.teams2.savedState",
         "~/Library/WebKit/com.microsoft.teams",
       ],
       rmdir: "~/Library/Application Support/Microsoft"
