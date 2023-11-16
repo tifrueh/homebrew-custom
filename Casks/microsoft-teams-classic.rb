@@ -27,7 +27,6 @@ cask "microsoft-teams-classic" do
 
   auto_updates true
   conflicts_with cask: "microsoft-office-businesspro"
-  conflicts_with cask: "microsoft-teams"
   depends_on cask: "microsoft-auto-update"
   depends_on macos: ">= :big_sur"
 
