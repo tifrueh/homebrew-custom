@@ -1,4 +1,4 @@
-cask "microsoft-teams" do
+cask "microsoft-teams-classic" do
   version "1.6.00.29954"
   sha256 "b0e7f3dbf62f22690193f9422a2d477cd7d50785adcd066815f0fac3c7e54523"
 
