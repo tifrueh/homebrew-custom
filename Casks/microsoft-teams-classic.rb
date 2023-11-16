@@ -27,6 +27,7 @@ cask "microsoft-teams-classic" do
 
   auto_updates true
   conflicts_with cask: "microsoft-office-businesspro"
+  conflicts_with cask: "microsoft-teams"
   depends_on cask: "microsoft-auto-update"
   depends_on macos: ">= :big_sur"
 
@@ -41,7 +42,6 @@ cask "microsoft-teams-classic" do
 
   uninstall pkgutil:   [
               "com.microsoft.MSTeamsAudioDevice",
-              "com.microsoft.package.Microsoft_AutoUpdate.app",
               "com.microsoft.teams",
             ],
             launchctl: "com.microsoft.teams.TeamsUpdaterDaemon",
